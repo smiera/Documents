@@ -1,6 +1,6 @@
 # Table of contents
 
-* [README](README.md)
+* [EDI-N](README.md)
 * [cat](cat/README.md)
   * [ORDER](cat/order.md)
 
