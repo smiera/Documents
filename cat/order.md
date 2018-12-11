@@ -1,122 +1,126 @@
+Заказ (ORDER) на поставку отправляет покупатель поставщику, указывая штрихкод продукта, его описание, заказанное количество, цену и прочую необходимую информацию.
 
-аказ (ORDER) на поставку отправляет покупатель поставщику, указывая штрихкод продукта, его описание, заказанное количество, цену и прочую необходимую информацию.
+|*Название поля**                       |*Тип** |*Формат**      |*Описание**                                              |
+| ------------------------------------------------------------- | ------- | -------------------- | ------------------------------------------------------------------------------------------------------ |
+|<ORDER>**                          | | | |
+|<DOCUMENTNAME></DOCUMENTNAME>               | М    | Число положительное  | Название документа (220 —заказ)                                     |
+|<NUMBER></NUMBER>                     | М    | Строка (50)      | Номер заказа                                              |
+|<DATE></DATE>                       | М    | Дата (ГГГГ-ММ-ДД)   | Дата документа                                             |
+|<ACTION></ACTION>                     | О    | «4», «5», «27», «29» | 4 — поставка изменена, 5 — замена документа, 29 — поставка принята, 27 — поставка не принята      |
+|<VERSION></VERSION>                    | O    | Число положительное  | Версия заказа                                              |
+|<PROMO></PROMO>                      | O    | «0», «1»       | Акция: 0 — нет, 1 — есть                                        |
+|<DELIVERYDATE></DELIVERYDATE>               | М    | Дата (ГГГГ-ММ-ДД)   | Дата поставки                                              |
+|<DELIVERYTIME></DELIVERYTIME>               | O    | Время (чч:мм)     | Время поставки                                             |
+|<SHIPMENTDATE></SHIPMENTDATE>               | O    | Дата (ГГГГ-ММ-ДД)   | Дата отгрузки6                                             |
+|<SHIPMENTTIME></SHIPMENTTIME>               | O    | Время (чч:мм)     | Время отгрузки                                             |
+|<CAMPAIGNNUMBER></CAMPAIGNNUMBER>             | O    | Строка (70)      | Номер договора на поставку                                       |
+|<CAMPAIGNNUMBERDATE></CAMPAIGNNUMBERDATE>         | O    | Дата (ГГГГ-ММ-ДД)   | Дата договора                                              |
+|<CURRENCY></CURRENCY>                   | O    | Строка (3)      | Код валюты                                               |
+|<TRANSPORTQUANTITY></TRANSPORTQUANTITY>          | O    | Число положительное  | Количество машин                                            |
+|<ORDERREFERENCENUMBER>5</ORDERREFERENCENUMBER>      | | Строка (16)      | Уникальный номер заказа для отслеживания                                 |
+|<LIMES>**                          | | | Детали транспорта                                            |
+|<LIMESNAME></LIMESNAME>               | O    | Строка (70)      | Название рампы                                             |
+|<DATEFROM></DATEFROM>                | O    | Дата (ГГГГ-ММ-ДД)   | Дата прибытия транспорта                                        |
+|<TIMEFROM></TIMEFROM>                | O    | Время (чч:мм)     | Время прибытия транспорта                                        |
+|<DATETO></DATETO>                  | O    | Дата (ГГГГ-ММ-ДД)   | Дата окончания отгрузки                                         |
+|<TIMETO></TIMETO>                  | O    | Время (чч:мм)     | Время окончания отгрузки                                        |
+|/LIMES>**                          | | | |
+|<VAT></VAT>                        | O    | Число положительное  | Ставка НДС, %                                              |
+|<TRANSPORTATIONTYPES></TRANSPORTATIONTYPES>        | O    | Строка (35)      | Вид транспортировки                                           |
+|<TRANSPORTATIONMEANS></TRANSPORTATIONMEANS>        | O    | Строка (70)      | Транспортное средство                                          |
+|<TRANSPORTATIONCONDITION></TRANSPORTATIONCONDITION>    | O    | Строка (70)      | Условия транспортировки                                         |
+|<TRANSPORTATIONPAYMENTTYPE></TRANSPORTATIONPAYMENTTYPE>  | O    | Строка (35)      | Тип оплаты доставки                                           |
+|<TRANSPORTATIONROUTE></TRANSPORTATIONROUTE>        | O    | Строка (70)      | Маршрут доставки                                            |
+|<BLANKETORDERNUMBER></BLANKETORDERNUMBER>         | O    | Строка (35)      | Номер бланкового заказа                                         |
+|<INFOCODED></INFOCODED>                  | O    | Строка (35)      | Инфокод                                                 |
+|<DOCTYPE></DOCTYPE>                    | O    | Строка (1)      
 
-**Название поля**|**Тип**|**Формат**|**Описание**
-|------------------------------------------------------------- | ------- | -------------------- | ------------------------------------------------------------------------------------------------------
-**ORDER**| | |
-DOCUMENTNAMEDOCUMENTNAME|М|Число положительное|Название документа (220 —заказ)
-     NUMBERNUMBER|М|Строка (50)|Номер заказа
-     DATEDATE|М|Дата (ГГГГ-ММ-ДД)|Дата документа
-     ACTIONACTION|О|«4», «5», «27», «29»|4 — поставка изменена, 5 — замена документа, 29 — поставка принята, 27 — поставка не принята
-     VERSIONVERSION|O|Число положительное|Версия заказа
-     PROMOPROMO|O|«0», «1»|Акция: 0 — нет, 1 — есть
-     DELIVERYDATEDELIVERYDATE|М|Дата (ГГГГ-ММ-ДД)|Дата поставки
-     DELIVERYTIMEDELIVERYTIME|O|Время (чч:мм)|Время поставки
-     SHIPMENTDATESHIPMENTDATE|O|Дата (ГГГГ-ММ-ДД)|Дата отгрузки6
-     SHIPMENTTIMESHIPMENTTIME|O|Время (чч:мм)|Время отгрузки
-     CAMPAIGNNUMBERCAMPAIGNNUMBER|O|Строка (70)|Номер договора на поставку
-     CAMPAIGNNUMBERDATECAMPAIGNNUMBERDATE|O|Дата (ГГГГ-ММ-ДД)|Дата договора
-     CURRENCYCURRENCY|O|Строка (3)|Код валюты
-     TRANSPORTQUANTITYTRANSPORTQUANTITY|O|Число положительное|Количество машин
-     ORDERREFERENCENUMBER5ORDERREFERENCENUMBER| |Строка (16)|Уникальный номер заказа для отслеживания
-     **LIMES**| | |Детали транспорта
-          LIMESNAMELIMESNAME|O|Строка (70)|Название рампы
-          DATEFROMDATEFROM|O|Дата (ГГГГ-ММ-ДД)|Дата прибытия транспорта
-          TIMEFROMTIMEFROM|O|Время (чч:мм)|Время прибытия транспорта
-          DATETODATETO|O|Дата (ГГГГ-ММ-ДД)|Дата окончания отгрузки
-          TIMETOTIMETO|O|Время (чч:мм)|Время окончания отгрузки
-     **LIMES**| | |
-     VATVAT|O|Число положительное|Ставка НДС, %
-     TRANSPORTATIONTYPESTRANSPORTATIONTYPES|O|Строка (35)|Вид транспортировки
-     TRANSPORTATIONMEANSTRANSPORTATIONMEANS|O|Строка (70)|Транспортное средство
-     TRANSPORTATIONCONDITIONTRANSPORTATIONCONDITION|O|Строка (70)|Условия транспортировки
-     TRANSPORTATIONPAYMENTTYPETRANSPORTATIONPAYMENTTYPE|O|Строка (35)|Тип оплаты доставки
-     TRANSPORTATIONROUTETRANSPORTATIONROUTE|O|Строка (70)|Маршрут доставки
-     BLANKETORDERNUMBERBLANKETORDERNUMBER|O|Строка (35)|Номер бланкового заказа
-     INFOCODEDINFOCODED|O|Строка (35)|Инфокод
-     DOCTYPEDOCTYPE|O|Строка (1)|(((
+Тип документа:  
+O — оригинал,  
+R — замена,  
+D — удаление,
 
+F — фиктивность заказа
 
-
-     CORRNUMBERCORRNUMBER| | |
-     SUPORDERSUPORDER|O|Строка (35)|Номер заказа поставщика
-     KDKNUMKDKNUM|O|Строка (35)|Номер общего заказа КДК
-     ORDRTYPEORDRTYPE|O|Строка (35)|Тип заказа
-     INFOINFO|O|Строка (70)|Свободный текст
-     EARLIESTDELIVERYDATEEARLIESTDELIVERYDATE|O|Дата (ГГГГ-ММ-ДД)|Дата не раньше
-     LATESTDELIVERYDATELATESTDELIVERYDATE|O|Дата (ГГГГ-ММ-ДД)|Дата не позднее
-     **HEAD**| | |
-          SUPPLIERSUPPLIER|M|Число (13)|GLN поставщика
-          BUYERBUYER|M|Число (13)|GLN покупателя
-          BUYERCODEBUYERCODE|O|Строка (35)|Код покупателя
-          DELIVERYPLACEDELIVERYPLACE|M|Число (13)|GLN места доставки
-          FINALRECIPIENTFINALRECIPIENT|O|Число (13)|GLN конечного консигнатора
-          ORDERPARTNERORDERPARTNER|O|Число (13)|GLN заказчика
-          INVOICEPARTNERINVOICEPARTNER|O|Число (13)|GLN плательщика
-          SENDERSENDER|M|Число (13)|GLN отправителя сообщения
-          RECIPIENTRECIPIENT|M|Число (13)|GLN получателя сообщения
-          CONSIGNEECONSIGNEE|О11|Число (13)|GLN грузополучателя
-          RECIPIENTCODERECIPIENTCODE|O|Строка (35)|Код получателя
-          RECIPIENTNAMERECIPIENTNAME|O|Строка (70)|Имя получателя
-          INFOINFO|O|Строка (70)|Свободный текст
-          DISCOUNTVALUEDISCOUNTVALUE|O|Число положительное|Размер скидки
-          RECIPIENTCONTACTFACERECIPIENTCONTACTFACE|O|Строка (70)|Контактное лицо
-          RECIPIENTPHONERECIPIENTPHONE|O|Строка (35)|Телефон получателя
-          RECIPIENTCITYRECIPIENTCITY|O|Строка (35)|Город получателя
-          RECIPIENTADRESSRECIPIENTADRESS|O|Строка (70)|Адрес получателя
-          EDIINTERCHANGEIDEDIINTERCHANGEID|O|Строка (70)|Номер транзакции
-          **POSITION**| | |
-               POSITIONNUMBERPOSITIONNUMBER|М|Число положительное|Номер товарной позиции
-               PRODUCTPRODUCT|M|Число (8, 10, 14)|Штрихкод продукта
-               PRODUCTIDSUPPLIERPRODUCTIDSUPPLIER|O|Строка (16)|Артикул в БД
-               PRODUCTIDBUYERPRODUCTIDBUYER|O|Строка (16)|Артикул в БД покупателя
-               BUYERPARTNUMBERBUYERPARTNUMBER|О|Строка (16)|Внутренний системный номер артикула в БД покупателя
-               ORDEREDQUANTITYORDEREDQUANTITY|M|Число положительное|Заказанное количество
-               QUANTITYOFCUINTUQUANTITYOFCUINTU|О|Число положительное|Количество в упаковке
-               ORDERUNITORDERUNIT|О|Строка (3)|Единицы измерения (см. Приложение 3)ﾧ
-               QUANTITYOFPACKSQUANTITYOFPACKS|О|Число положительное|Количество упаковок
-               ORDERPRICEORDERPRICE|O|Число десятичное|Цена продукта без НДС
-               PRICEWITHVATPRICEWITHVAT|O|Число десятичное|Цена продукта с НДС
-               AMOUNTAMOUNT|O|Число десятичное|Сумма товара (без НДС)
-               AMOUNTWITHVATAMOUNTWITHVAT|О|Число десятичное|Сумма товара (с НДС)
-               VATVAT|O|Число десятичное|Ставка НДС, %
-               CLAIMEDDELIVERYDATECLAIMEDDELIVERYDATE|O|Дата (ГГГГ-ММ-ДД)|Объявленная дата доставки
-               CLAIMEDDELIVERYTIMECLAIMEDDELIVERYTIME|O|Время (чч:мм)|Объявленное время доставки
-               DELIVERYPLACEDELIVERYPLACE|О|Число (13)|GLN конечного места доставки
-               INFOCODEDINFOCODED|O|Строка (35)|Инфокод
-               MINIMUMORDERQUANTITYMINIMUMORDERQUANTITY|O|Число положительное|Минимальное заказанное количество
-               MAXIMUMORDERQUANTITY MAXIMUMORDERQUANTITY|O|Число положительное|Максимально допустимое отгрузжаемое количество
-               PRODUCTIONCODEPRODUCTIONCODE|О|Строка (16)|Код алкогольной продукции
-               POSITIONKGM50POSITIONKGM|М| |Всего килограмм по позиции
-               INFOINFO|O|Строка (90)|Свободный текст
-               COMPAIGNNUMBERCOMPAIGNNUMBER|O|Строка (70)|Номер поставщика
-               EARLIESTDELIVERYDATEEARLIESTDELIVERYDATE|O|Дата (ГГГГ-ММ-ДД)|Поставка не раньше указанной даты
-               LATESTDELIVERYDATELATESTDELIVERYDATE|O|Дата (ГГГГ-ММ-ДД)|Поставка не позднее указанной даты
-               LATESTDELIVERYTIMELATESTDELIVERYTIME|O|Время (чч:мм)|Поставка не позднее указанного времени
-               CONDITIONSTATUSCONDITIONSTATUS|О|Строка (3)|Статус кондиции (см. Приложение 2)ﾧ
-               PACKAGEIDPACKAGEID|O|Число положительное|Идентификатор упаковки
-               CATEGORYNAMECATEGORYNAME|O|Строка (70)|Наименование категории товара
-               BRENDNAMEBRENDNAME|O|Строка (70)|Наименование бренда
-               GROUPNAMEведро 9.6кгGROUPNAME| | |Наименование группы товара
-               NOVELTYNOVELTY|O| |Новинка
-               COUNTPIECESINBOXCOUNTPIECESINBOX|O|Число положительное|Количество частей в упаковке
-               COUNTBOXESINLAYERCOUNTBOXESINLAYER|O|Число положительное|Количество упаковок на уровне
-               COUNTPERPALLETCOUNTPERPALLET|O|Число положительное|Количество на паллете
-               WEIGHTWEIGHT|O|Число десятичное|Вес
-               PALLETSPALLETS|O|Число положительное|Количество паллет
-               COUNTRYORIGINCOUNTRYORIGIN|О|Строка (2)|Страна производитель
-               CALIBRECALIBRE|O|Число положительное|Диаметр
-               PRICEWITHDISCOUNTPRICEWITHDISCOUNT|O|Число десятичное|Цена с учетом скидки
-               BOXESCOUNTBOXESCOUNT|O|Число положительное|Количество упаковок
-               **CHARACTERISTIC**| | |
-                    DESCRIPTIONDESCRIPTION|О|Строка (70)|Описание продукта
-               **CHARACTERISTIC**| | |
-               **PACKING**| | |
-                    PACKINGTYPEPACKINGTYPE|O|Строка (3)|Тип упаковки
-                    PACKINGQUANTITYPACKINGQUANTITY|O|Число положительное|Количество упаковок
-                    PACKINGUNITPACKINGUNIT|O|Число положительное|Упаковщик
-               **PACKING**| | |
-          **POSITION**| | |
-     **HEAD**| | |
-**ORDER**| | |
-
+PO — предзаказ |
+|<CORRNUMBER></CORRNUMBER>                 | | | |
+|<SUPORDER></SUPORDER>                   | O    | Строка (35)      | Номер заказа поставщика                                         |
+|<KDKNUM></KDKNUM>                     | O    | Строка (35)      | Номер общего заказа КДК                                         |
+|<ORDRTYPE></ORDRTYPE>                   | O    | Строка (35)      | Тип заказа                                               |
+|<INFO></INFO>                       | O    | Строка (70)      | Свободный текст                                             |
+|<EARLIESTDELIVERYDATE></EARLIESTDELIVERYDATE>       | O    | Дата (ГГГГ-ММ-ДД)   | Дата не раньше                                             |
+|<LATESTDELIVERYDATE></LATESTDELIVERYDATE>         | O    | Дата (ГГГГ-ММ-ДД)   | Дата не позднее                                             |
+|<HEAD>**                           | | | |
+|<SUPPLIER></SUPPLIER>                | M    | Число (13)      | GLN поставщика                                             |
+|<BUYER></BUYER>                   | M    | Число (13)      | GLN покупателя                                             |
+|<BUYERCODE></BUYERCODE>               | O    | Строка (35)      | Код покупателя                                             |
+|<DELIVERYPLACE></DELIVERYPLACE>           | M    | Число (13)      | GLN места доставки                                           |
+|<FINALRECIPIENT></FINALRECIPIENT>          | O    | Число (13)      | GLN конечного консигнатора                                       |
+|<ORDERPARTNER></ORDERPARTNER>            | O    | Число (13)      | GLN заказчика                                              |
+|<INVOICEPARTNER></INVOICEPARTNER>          | O    | Число (13)      | GLN плательщика                                             |
+|<SENDER></SENDER>                  | M    | Число (13)      | GLN отправителя сообщения                                        |
+|<RECIPIENT></RECIPIENT>               | M    | Число (13)      | GLN получателя сообщения                                        |
+|<CONSIGNEE></CONSIGNEE>               | О11   | Число (13)      | GLN грузополучателя                                           |
+|<RECIPIENTCODE></RECIPIENTCODE>           | O    | Строка (35)      | Код получателя                                             |
+|<RECIPIENTNAME></RECIPIENTNAME>           | O    | Строка (70)      | Имя получателя                                             |
+|<INFO></INFO>                    | O    | Строка (70)      | Свободный текст                                             |
+|<DISCOUNTVALUE></DISCOUNTVALUE>           | O    | Число положительное  | Размер скидки                                              |
+|<RECIPIENTCONTACTFACE></RECIPIENTCONTACTFACE>    | O    | Строка (70)      | Контактное лицо                                             |
+|<RECIPIENTPHONE></RECIPIENTPHONE>          | O    | Строка (35)      | Телефон получателя                                           |
+|<RECIPIENTCITY></RECIPIENTCITY>           | O    | Строка (35)      | Город получателя                                            |
+|<RECIPIENTADRESS></RECIPIENTADRESS>         | O    | Строка (70)      | Адрес получателя                                            |
+|<EDIINTERCHANGEID></EDIINTERCHANGEID>        | O    | Строка (70)      | Номер транзакции                                            |
+|<POSITION>**                       | | | |
+|<POSITIONNUMBER></POSITIONNUMBER>        | М    | Число положительное  | Номер товарной позиции                                         |
+|<PRODUCT></PRODUCT>               | M    | Число (8, 10, 14)   | Штрихкод продукта                                            |
+|<PRODUCTIDSUPPLIER></PRODUCTIDSUPPLIER>     | O    | Строка (16)      | Артикул в БД                                              |
+|<PRODUCTIDBUYER></PRODUCTIDBUYER>        | O    | Строка (16)      | Артикул в БД покупателя                                         |
+|<BUYERPARTNUMBER></BUYERPARTNUMBER>       | О    | Строка (16)      | Внутренний системный номер артикула в БД покупателя                           |
+|<ORDEREDQUANTITY></ORDEREDQUANTITY>       | M    | Число положительное  | Заказанное количество                                          |
+|<QUANTITYOFCUINTU></QUANTITYOFCUINTU>      | О    | Число положительное  | Количество в упаковке                                          |
+|<ORDERUNIT></ORDERUNIT>             | О    | Строка (3)      | Единицы измерения (см. Приложение 3)ﾧ                                  |
+|<QUANTITYOFPACKS></QUANTITYOFPACKS>       | О    | Число положительное  | Количество упаковок                                           |
+|<ORDERPRICE></ORDERPRICE>            | O    | Число десятичное   | Цена продукта без НДС                                          |
+|<PRICEWITHVAT></PRICEWITHVAT>          | O    | Число десятичное   | Цена продукта с НДС                                           |
+|<AMOUNT></AMOUNT>                | O    | Число десятичное   | Сумма товара (без НДС)                                         |
+|<AMOUNTWITHVAT></AMOUNTWITHVAT>         | О    | Число десятичное   | Сумма товара (с НДС)                                          |
+|<VAT></VAT>                   | O    | Число десятичное   | Ставка НДС, %                                              |
+|<CLAIMEDDELIVERYDATE></CLAIMEDDELIVERYDATE>   | O    | Дата (ГГГГ-ММ-ДД)   | Объявленная дата доставки                                        |
+|<CLAIMEDDELIVERYTIME></CLAIMEDDELIVERYTIME>   | O    | Время (чч:мм)     | Объявленное время доставки                                       |
+|<DELIVERYPLACE></DELIVERYPLACE>         | О    | Число (13)      | GLN конечного места доставки                                      |
+|<INFOCODED></INFOCODED>             | O    | Строка (35)      | Инфокод                                                 |
+|<MINIMUMORDERQUANTITY></MINIMUMORDERQUANTITY>  | O    | Число положительное  | Минимальное заказанное количество                                    |
+|<MAXIMUMORDERQUANTITY> </MAXIMUMORDERQUANTITY> | O    | Число положительное  | Максимально допустимое отгрузжаемое количество                             |
+|<PRODUCTIONCODE></PRODUCTIONCODE>        | О    | Строка (16)      | Код алкогольной продукции                                        |
+|<POSITIONKGM>50</POSITIONKGM>          | М    | | Всего килограмм по позиции                                       |
+|<INFO></INFO>                  | O    | Строка (90)      | Свободный текст                                             |
+|<COMPAIGNNUMBER></COMPAIGNNUMBER>        | O    | Строка (70)      | Номер поставщика                                            |
+|<EARLIESTDELIVERYDATE></EARLIESTDELIVERYDATE>  | O    | Дата (ГГГГ-ММ-ДД)   | Поставка не раньше указанной даты                                    |
+|<LATESTDELIVERYDATE></LATESTDELIVERYDATE>    | O    | Дата (ГГГГ-ММ-ДД)   | Поставка не позднее указанной даты                                   |
+|<LATESTDELIVERYTIME></LATESTDELIVERYTIME>    | O    | Время (чч:мм)     | Поставка не позднее указанного времени                                 |
+|<CONDITIONSTATUS></CONDITIONSTATUS>       | О    | Строка (3)      | Статус кондиции (см. Приложение 2)ﾧ                                   |
+|<PACKAGEID></PACKAGEID>             | O    | Число положительное  | Идентификатор упаковки                                         |
+|<CATEGORYNAME></CATEGORYNAME>          | O    | Строка (70)      | Наименование категории товара                                      |
+|<BRENDNAME></BRENDNAME>             | O    | Строка (70)      | Наименование бренда                                           |
+|<GROUPNAME>ведро 9.6кг</GROUPNAME>       | | | Наименование группы товара                                       |
+|<NOVELTY></NOVELTY>               | O    | | Новинка                                                 |
+|<COUNTPIECESINBOX></COUNTPIECESINBOX>      | O    | Число положительное  | Количество частей в упаковке                                      |
+|<COUNTBOXESINLAYER></COUNTBOXESINLAYER>     | O    | Число положительное  | Количество упаковок на уровне                                      |
+|<COUNTPERPALLET></COUNTPERPALLET>        | O    | Число положительное  | Количество на паллете                                          |
+|<WEIGHT></WEIGHT>                | O    | Число десятичное   | Вес                                                   |
+|<PALLETS></PALLETS>               | O    | Число положительное  | Количество паллет                                            |
+|<COUNTRYORIGIN></COUNTRYORIGIN>         | О    | Строка (2)      | Страна производитель                                          |
+|<CALIBRE></CALIBRE>               | O    | Число положительное  | Диаметр                                                 |
+|<PRICEWITHDISCOUNT></PRICEWITHDISCOUNT>     | O    | Число десятичное   | Цена с учетом скидки                                          |
+|<BOXESCOUNT></BOXESCOUNT>            | O    | Число положительное  | Количество упаковок                                           |
+|<CHARACTERISTIC>**                 | | | |
+|<DESCRIPTION></DESCRIPTION>        | О    | Строка (70)      | Описание продукта                                            |
+|/CHARACTERISTIC>**                 | | | |
+|<PACKING>**                     | | | |
+|<PACKINGTYPE></PACKINGTYPE>        | O    | Строка (3)      | Тип упаковки                                              |
+|<PACKINGQUANTITY></PACKINGQUANTITY>    | O    | Число положительное  | Количество упаковок                                           |
+|<PACKINGUNIT></PACKINGUNIT>        | O    | Число положительное  | Упаковщик                                                |
+|/PACKING>**                    | | | |
+|/POSITION>**                      | | | |
+| ** </HEAD>**                          | | | |
+|<ORDER>**                          | | | |
