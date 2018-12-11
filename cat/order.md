@@ -35,13 +35,9 @@
      BLANKETORDERNUMBER/BLANKETORDERNUMBER|O|Строка (35)|Номер бланкового заказа
      INFOCODED/INFOCODED|O|Строка (35)|Инфокод
      DOCTYPE/DOCTYPE|O|Строка (1)|(((
-ип документа:
- — оригинал,
- — замена,
- — удаление,
- — фиктивность заказа
-O — предзаказ
-)))
+
+
+
      CORRNUMBER/CORRNUMBER| | |
      SUPORDER/SUPORDER|O|Строка (35)|Номер заказа поставщика
      KDKNUM/KDKNUM|O|Строка (35)|Номер общего заказа КДК
