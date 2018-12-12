@@ -1,7 +1,8 @@
 # EDI-N
 
-[I'm an inline-style link](https://www.google.com)
 
-[I'm an inline-style link with title](https://www.google.com "Google's Homepage")
+[ACT](https://github.com/EDI-N/Documents/blob/master/xml-specifications/ACT.md)
+
+[ACTSET](https://github.com/EDI-N/Documents/blob/master/xml-specifications/ACTSET.md)
 
 
